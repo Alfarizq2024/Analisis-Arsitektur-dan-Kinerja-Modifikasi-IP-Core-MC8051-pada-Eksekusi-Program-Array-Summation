@@ -87,14 +87,18 @@ MC8051 terdiri atas:
 
 <img width="1600" height="900" alt="WhatsApp Image 2026-06-05 at 22 48 23" src="https://github.com/user-attachments/assets/aa83e4dd-3ad6-4469-ac17-9c3707983ded" />
 Siklus Looping
-
+<br>
+<br>
 
 <img width="1600" height="900" alt="WhatsApp Image 2026-06-05 at 22 48 24" src="https://github.com/user-attachments/assets/3cd803cc-6973-4139-a412-d2cfd882e327" />
 Aritmatika dan Memori
-
+<br>
+<br>
 
 <img width="1600" height="900" alt="WhatsApp Image 2026-06-05 at 22 48 24 (1)" src="https://github.com/user-attachments/assets/d6022bdb-3761-40b4-af48-f5161ec1de58" />
 modifikasi hardware
+<br>
+<br>
 
 Observasi:
 - Program Counter melakukan branch saat DJNZ.
