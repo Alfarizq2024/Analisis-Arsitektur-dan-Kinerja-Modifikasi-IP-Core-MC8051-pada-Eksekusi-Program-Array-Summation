@@ -1,6 +1,6 @@
-# MC8051 Array Summation — Analisis Arsitektur dan Kinerja
+# Analisis Arsitektur dan Kinerja Modifikasi IP Core MC8051 pada Eksekusi Program Array Summation
 
-Proyek tugas mata kuliah **Organisasi dan Arsitektur Komputer** yang menganalisis eksekusi program Array Summation pada platform Oregano MC8051 IP Core menggunakan ModelSim.
+Proyek tugas mata kuliah Organisasi dan Arsitektur Komputer yang menganalisis eksekusi program Array Summation pada platform Oregano MC8051 IP Core menggunakan ModelSim.
 
 ## Anggota Kelompok
 
