@@ -12,81 +12,91 @@ Proyek tugas mata kuliah Organisasi dan Arsitektur Komputer yang menganalisis ek
 | M. Daffa Raditya Budiman | 24/537800/PA/22797 |
 | Samuel Marcel Jonathan Panjaitan | 24/541509/PA/22977 |
 
-# Analisis Arsitektur dan Kinerja Modifikasi IP Core MC8051 pada Eksekusi Program Array Summation
+## Key Findings
 
-![Platform](https://img.shields.io/badge/Platform-MC8051-blue)
-![Language](https://img.shields.io/badge/VHDL-RTL-orange)
-![Simulator](https://img.shields.io/badge/ModelSim-SE%2FPE-green)
-![License](https://img.shields.io/badge/License-Educational-lightgrey)
+| Eksperimen | Hasil |
+|------------|--------|
+| Loop Unrolling | Waktu eksekusi berkurang 43.5% |
+| Modifikasi SIU & Timer | Penghematan LUT sekitar 20% |
+| Fungsionalitas ALU | Tetap identik |
+| Hasil Komputasi | Tetap menghasilkan 1AH (26 desimal) |
 
-Proyek tugas akhir mata kuliah Organisasi dan Arsitektur Komputer Universitas Gadjah Mada.
+## Architecture Overview
 
-## Platform
+MC8051 terdiri atas:
 
-- **IP Core**: MC8051 Version 1.6 — Oregano Systems
-- **Simulator**: ModelSim SE/PE (Mentor Graphics / Siemens EDA)
-- **Bahasa Deskripsi**: VHDL
+- Control Unit (FSM)
+- Arithmetic Logic Unit (ALU)
+- ROM Interface
+- RAM Interface
+- Serial Interface Unit (SIU)
+- Timer/Counter
+- I/O Ports
 
-## Struktur Repositori
+![Architecture](figures/arch_diagram.png)
 
-```
-.
-├── src/
-│   ├── array_sum.asm              # Program utama (loop DJNZ)
-│   ├── array_sum.hex              # Intel HEX format (asli)
-│   ├── array_sum_optimized.asm    # Program optimasi (loop unrolling)
-│   └── array_sum_optimized.hex    # Intel HEX format (optimasi)
-├── vhdl_modified/
-│   └── mc8051_p_modified.vhd      # File VHDL modifikasi (SIU=0, TMR=1)
-├── docs/
-│   └── laporan_mc8051.pdf         # Laporan IEEE Conference
-├── scripts/
-│   ├── setup_sim.do               # Script simulasi standar
-│   ├── setup_sim_modified.do      # Script simulasi modifikasi
-│   └── convert_hex.sh             # Script konversi HEX ke .dua
-├── figures/
-│   ├── arch_diagram.png           # Diagram arsitektur
-│   ├── flowchart.png              # Flowchart eksperimen
-│   └── loop_timing.png            # Diagram timing
-└── README.md
-```
+## Experimental Flow
 
-## Program yang Dijalankan
+1. Menulis program Assembly 8051
+2. Kompilasi menjadi Intel HEX
+3. Konversi HEX → DUA
+4. Simulasi pada ModelSim
+5. Pengamatan Waveform
+6. Modifikasi VHDL
+7. Simulasi ulang
+8. Analisis performa
 
-### Array Summation (Loop DJNZ)
-Menjumlahkan 5 elemen array (alamat 40H–44H) menggunakan perulangan dengan instruksi `DJNZ`.
+## Performance Comparison
 
-### Array Summation (Loop Unrolling)
-Versi optimasi tanpa perulangan — operasi ADD dilakukan secara berurutan untuk mengurangi overhead branching.
+| Metric | Loop | Loop Unrolling |
+|----------|----------|----------|
+| Machine Cycles | 23 | 13 |
+| Clock Cycles | 46 | 26 |
+| Execution Time | 4600 ns | 2600 ns |
+| Improvement | - | 43.5% |
 
-## Eksperimen Modifikasi
+## Hardware Resource Comparison
 
-Konfigurasi standar MC8051 dimodifikasi:
-- `C_IMPL_N_SIU`: 1 → 0 (Serial Interface dinonaktifkan)
-- `C_IMPL_N_TMR`: 2 → 1 (Timer dikurangi menjadi 1)
+| Parameter | Standard | Modified |
+|------------|------------|------------|
+| SIU | 1 | 0 |
+| Timer | 2 | 1 |
+| Estimated LUT | 3500 | 2800 |
+| Resource Saving | - | 20% |
 
-Hasil modifikasi:
-- Penghematan ~20% LUT pada implementasi FPGA
-- Fungsionalitas ALU dan eksekusi program tetap utuh
-- Waktu eksekusi identik (periferal independen dari inti prosesor)
+## Repository Structure
 
-## Cara Menjalankan
+📂 src/
+ ├── array_sum.asm
+ ├── array_sum.hex
+ ├── array_sum_optimized.asm
+ └── array_sum_optimized.hex
 
-1. Ekstrak `mc8051_design_v1.6.zip` ke direktori kerja
-2. Konversi file HEX ke format .dua:
-   ```bash
-   cd msim/
-   gcc hex2dual.c -o hex2dual
-   ./hex2dual ../src/array_sum.hex
-   cp array_sum.dua mc8051_rom.dua
-   ```
-3. Jalankan ModelSim:
-   ```tcl
-   vlib work
-   vmap work work
-   do mc8051_compile.do
-   vsim work.tb_mc8051_top_sim_cfg
-   do mc8051_wave.do
-   run -all
-   ```
+📂 vhdl_modified/
+ └── mc8051_p_modified.vhd
 
+📂 scripts/
+ ├── setup_sim.do
+ ├── setup_sim_modified.do
+ └── convert_hex.sh
+
+📂 figures/
+ ├── arch_diagram.png
+ ├── flowchart.png
+ └── loop_timing.png
+
+## ModelSim Waveform Analysis
+
+![Waveform](figures/modelsim_waveform.png)
+
+Observasi:
+- Program Counter melakukan branch saat DJNZ.
+- ALU menghasilkan output 1AH.
+- Fetch–Decode–Execute dapat diamati secara langsung.
+
+## Conclusion
+
+- Loop unrolling mengurangi waktu eksekusi sebesar 43.5%.
+- Modifikasi periferal tidak mempengaruhi hasil komputasi.
+- Pengurangan SIU dan Timer menghasilkan penghematan LUT sekitar 20%.
+- Arsitektur MC8051 menunjukkan modularitas yang tinggi untuk implementasi FPGA.
