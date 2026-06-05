@@ -73,8 +73,11 @@ Hasil modifikasi:
 
 ## Anggota Kelompok
 
-| Nama | NPM |
+| Nama | NIM |
 |------|-----|
-| Nama Anggota 1 | 12345678 |
-| Nama Anggota 2 | 12345678 |
-| Nama Anggota 3 | 12345678 |
+| Muhammad Alfarizq | 24/542274/PA/23023 |
+| Hizkia Imanuel Prasetya | 24/533897/PA/22627 |
+| Fikri Abqari Fawwaz | 24/537606/PA/22785 |
+| M. Daffa Raditya Budiman | 24/537800/PA/22797 |
+| Samuel Marcel Jonathan Panjaitan | 24/541509/PA/22977 |
+
