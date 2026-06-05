@@ -2,6 +2,16 @@
 
 Proyek tugas mata kuliah **Organisasi dan Arsitektur Komputer** yang menganalisis eksekusi program Array Summation pada platform Oregano MC8051 IP Core menggunakan ModelSim.
 
+## Anggota Kelompok
+
+| Nama | NIM |
+|------|-----|
+| Muhammad Alfarizq | 24/542274/PA/23023 |
+| Hizkia Imanuel Prasetya | 24/533897/PA/22627 |
+| Fikri Abqari Fawwaz | 24/537606/PA/22785 |
+| M. Daffa Raditya Budiman | 24/537800/PA/22797 |
+| Samuel Marcel Jonathan Panjaitan | 24/541509/PA/22977 |
+
 ## Platform
 
 - **IP Core**: MC8051 Version 1.6 — Oregano Systems
@@ -70,14 +80,4 @@ Hasil modifikasi:
    do mc8051_wave.do
    run -all
    ```
-
-## Anggota Kelompok
-
-| Nama | NIM |
-|------|-----|
-| Muhammad Alfarizq | 24/542274/PA/23023 |
-| Hizkia Imanuel Prasetya | 24/533897/PA/22627 |
-| Fikri Abqari Fawwaz | 24/537606/PA/22785 |
-| M. Daffa Raditya Budiman | 24/537800/PA/22797 |
-| Samuel Marcel Jonathan Panjaitan | 24/541509/PA/22977 |
 
