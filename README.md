@@ -12,6 +12,15 @@ Proyek tugas mata kuliah Organisasi dan Arsitektur Komputer yang menganalisis ek
 | M. Daffa Raditya Budiman | 24/537800/PA/22797 |
 | Samuel Marcel Jonathan Panjaitan | 24/541509/PA/22977 |
 
+# Analisis Arsitektur dan Kinerja Modifikasi IP Core MC8051 pada Eksekusi Program Array Summation
+
+![Platform](https://img.shields.io/badge/Platform-MC8051-blue)
+![Language](https://img.shields.io/badge/VHDL-RTL-orange)
+![Simulator](https://img.shields.io/badge/ModelSim-SE%2FPE-green)
+![License](https://img.shields.io/badge/License-Educational-lightgrey)
+
+Proyek tugas akhir mata kuliah Organisasi dan Arsitektur Komputer Universitas Gadjah Mada.
+
 ## Platform
 
 - **IP Core**: MC8051 Version 1.6 — Oregano Systems
