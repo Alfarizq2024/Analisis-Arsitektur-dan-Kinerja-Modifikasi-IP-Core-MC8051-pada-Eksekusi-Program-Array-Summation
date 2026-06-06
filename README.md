@@ -108,7 +108,7 @@ MC8051 terdiri atas:
    
 ## ModelSim Waveform Analysis
 
-<img width="1600" height="900" alt="WhatsApp Image 2026-06-05 at 22 48 23" src="https://github.com/user-attachments/assets/aa83e4dd-3ad6-4469-ac17-9c3707983ded" />
+<img width="1600" height="900" alt="WhatsApp Image 2026-06-05 at 22 48 23" src="docs/waveform.jpeg" />
 <div align="center">
 
 Siklus Looping
