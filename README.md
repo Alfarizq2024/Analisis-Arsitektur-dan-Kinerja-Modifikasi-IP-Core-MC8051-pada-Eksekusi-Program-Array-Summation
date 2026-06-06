@@ -12,7 +12,7 @@ Proyek tugas mata kuliah Organisasi dan Arsitektur Komputer yang menganalisis ek
 | M. Daffa Raditya Budiman | 24/537800/PA/22797 |
 | Samuel Marcel Jonathan Panjaitan | 24/541509/PA/22977 |
 
-## Key Findings
+## Hasil Eksperimen
 
 | Eksperimen | Hasil |
 |------------|--------|
@@ -21,7 +21,7 @@ Proyek tugas mata kuliah Organisasi dan Arsitektur Komputer yang menganalisis ek
 | Fungsionalitas ALU | Tetap identik |
 | Hasil Komputasi | Tetap menghasilkan 1AH (26 desimal) |
 
-## Architecture Overview
+## Detail Arsitektur
 
 MC8051 terdiri atas:
 
@@ -33,7 +33,7 @@ MC8051 terdiri atas:
 - Timer/Counter
 - I/O Ports
 
-## Experimental Flow
+## Alur Kerja
 
 1. Menulis program Assembly 8051
 2. Kompilasi menjadi Intel HEX
@@ -66,9 +66,11 @@ MC8051 terdiri atas:
 
 📂 src/
  ├── array_sum.asm
+ ├── array_sum.dua
  ├── array_sum.hex
  ├── array_sum_optimized.asm
- └── array_sum_optimized.hex
+ ├── array_sum_optimized.hex
+ └── mc8051 rom.dua
 
 📂 vhdl_modified/
  └── mc8051_p_modified.vhd
@@ -78,11 +80,32 @@ MC8051 terdiri atas:
  ├── setup_sim_modified.do
  └── convert_hex.sh
 
-📂 figures/
+📂 docs/
  ├── arch_diagram.png
  ├── flowchart.png
+ ├── waveform.jpeg
  └── loop_timing.png
+ 
+## Cara Menjalankan
 
+1. Ekstrak `mc8051_design_v1.6.zip` ke direktori kerja
+2. Konversi file HEX ke format .dua:
+   ```bash
+   cd msim/
+   gcc hex2dual.c -o hex2dual
+   ./hex2dual ../src/array_sum.hex
+   cp array_sum.dua mc8051_rom.dua
+   ```
+3. Jalankan ModelSim:
+   ```tcl
+   vlib work
+   vmap work work
+   do mc8051_compile.do
+   vsim work.tb_mc8051_top_sim_cfg
+   do mc8051_wave.do
+   run -all
+   ```
+   
 ## ModelSim Waveform Analysis
 
 <img width="1600" height="900" alt="WhatsApp Image 2026-06-05 at 22 48 23" src="https://github.com/user-attachments/assets/aa83e4dd-3ad6-4469-ac17-9c3707983ded" />
@@ -94,23 +117,6 @@ Siklus Looping
 <br>
 <br>
 
-<img width="1600" height="900" alt="WhatsApp Image 2026-06-05 at 22 48 24" src="https://github.com/user-attachments/assets/3cd803cc-6973-4139-a412-d2cfd882e327" />
-<div align="center">
-
-Aritmatika dan Memori
-
-</div>
-<br>
-<br>
-
-<img width="1600" height="900" alt="WhatsApp Image 2026-06-05 at 22 48 24 (1)" src="https://github.com/user-attachments/assets/d6022bdb-3761-40b4-af48-f5161ec1de58" />
-<div align="center">
-
-modifikasi hardware
-
-</div>
-<br>
-<br>
 
 Observasi:
 - Program Counter melakukan branch saat DJNZ.
