@@ -1,0 +1,13 @@
+# ModelSim / Simulation
+work/
+*.wlf
+transcript
+vsim.wlf
+
+# Compiled files
+*.o
+hex2dual
+
+# OS files
+.DS_Store
+Thumbs.db
