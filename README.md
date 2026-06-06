@@ -63,7 +63,7 @@ MC8051 terdiri atas:
 | Resource Saving | - | 20% |
 
 ## Repository Structure
-
+```
 📂 src/
  ├── array_sum.asm
  ├── array_sum.dua
@@ -85,7 +85,7 @@ MC8051 terdiri atas:
  ├── flowchart.png
  ├── waveform.jpeg
  └── loop_timing.png
- 
+ ```
 ## Cara Menjalankan
 
 1. Ekstrak `mc8051_design_v1.6.zip` ke direktori kerja
